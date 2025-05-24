@@ -48,6 +48,13 @@ def logout():
 
 import os
 
+@app.route('/initdb')
+def initdb():
+    from extensions import db
+    db.create_all()
+    return "Database initialized!"
+
+
 if __name__ == '__main__':
     port = int(os.environ.get('PORT', 5000))
     app.run(host='0.0.0.0', port=port)
