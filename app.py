@@ -87,6 +87,8 @@ def dashboard():
 
 @app.route('/initdb')
 def initdb():
+    from extensions import db
+    from models import Player, User
     with app.app_context():
         db.create_all()
     return "Database initialized!"
